@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<h4>{{user.username}}</h4>
+{% else %}
+<h4>visitor</h4>
+{% endif %}
+<img src="{% static 'img/shop.jpg' %}" alt="img" height="800px" width="100%">
+<div class="container-fluid" style="margin-bottom:100px;">
+    <h2 class="text-center" style="color:red;font-weight:bold;">COLLECTIONS</h2>
+    <br>
+    <p style="text-align:justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+
+<div class="container-fluid">
+    <div class="row">
+        {% for i in c %}
+        <div class=" col-md-4" style="height:450px">
+            <div class="card" style="background:#b39ddb">
+                <img src="{{i.image.url}}" class="card-img-top"  alt="..." height="250px">
+                <div class="card-body" style="color:green">
+                 <h5 class="card-title text-center" style="text-transform:uppercase;">{{i.name}}</h5>
+                <a href="{% url 'shop:allproducts' i.slug %}" class="btn btn-outline-light" style="background:purple;position:relative;left:38%;">PRODUCTS</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
