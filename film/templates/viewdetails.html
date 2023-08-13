@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container">
+<h1 style="color:blue; text-decoration:underline"><i>Movie Details</i></h1>
+<br>
+    <div class="row">
+        <div class=" col-md-3 " >
+            <div class="card" style="background:#f8bbd0">
+                <img src="{{m.img.url}}" class="card-img-top" alt="..." height="250px">
+                <div class="card-body">
+                 <h5 class="card-title">{{m.title}}({{m.year}})</h5>
+                    <p class="card-text">RATING:{{m.rating}}</p>
+                    <p class="card-text">DESCRIPTION:{{m.desc}}</p>
+                <a href="{% url 'Movies:editmovie' m.id %}" class="btn" style="background:#00897b">EDIT</a>
+                <a href="{% url 'Movies:deletemovie' m.id %}" class="btn" style="background:#eeff41">DELETE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>
+
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class=" col-md-6 " >-->
+<!--            <img src="{{m.img.url}}" class="img-top" alt="..." height="400px" width="500px">-->
+<!--        </div>-->
+<!--        <div class=" col-md-6 ">-->
+<!--            <h5 class="card-title" style="text-transform:uppercase;"><b>{{m.title}}({{m.year}})</b></h5><br>-->
+<!--            <p class="card-text">RATING:{{m.rating}}</p>-->
+<!--                    <p class="card-text"><b>DESCRIPTION:</b><i>{{m.desc}}</i></p>-->
+<!--                <a href="{% url 'Movies:editmovie' m.id %}" class="btn btn-warning">EDIT</a>-->
+<!--                <a href="{% url 'Movies:deletemovie' m.id %}" class="btn btn-danger">DELETE</a>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--</div>-->
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {%for i in m %}
+        <div class=" col-md-3" style="height:450px">
+            <div class="card" style="background:#b39ddb">
+                <img src="{{i.img.url}}" class="card-img-top"  alt="..." height="250px">
+                <div class="card-body" style="color:green">
+                 <h5 class="card-title" style="text-transform:uppercase;">{{i.title}}({{i.year}})</h5>
+                    <p class="card-text">RATING:{{i.rating}}</p>
+                <a href="{% url 'Movies:viewdetails' i.id %}" class="btn btn-outline-light" style="background:#1a237e">VIEW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
